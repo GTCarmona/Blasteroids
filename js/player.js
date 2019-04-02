@@ -1,3 +1,4 @@
+
 function moveShip(event) {
   if (event.key === "ArrowUp") {
     event.preventDefault()

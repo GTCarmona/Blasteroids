@@ -45,7 +45,8 @@ h1 {
   height: 20px;
   position: relative;
 }
-.asteroid{
-  height: 60px;
-  width: 60px;
-}
+.asteroid {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+  }

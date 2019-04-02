@@ -1,5 +1,4 @@
-const asteroidsImgs = ["images/Sprites/artPack/Aestroids/aestroid_brown.png","images/Sprites/artPack/Aestroids/aestroid_dark.png","images/Sprites/artPack/Aestroids/aestroid_gray.png"]
-
+const asteroidsImgs = ["images/Sprites/artPack/Blue/communication_ship_animation/1.png"]
 function createAsteroid () {
   let newAsteroid = document.createElement("img")
   let asteroidSpriteImg = asteroidsImgs[Math.floor(Math.random) * asteroidsImgs.length]
@@ -8,6 +7,7 @@ function createAsteroid () {
   newAsteroid.style.left = MAX_WIDTH
   newAsteroid.style.top = MAX_HEIGHT
   $mainPlayArea.appendChild(newAsteroid)
+  return newAsteroid
 }
 
 // function moveAsteroid(asteroid){
