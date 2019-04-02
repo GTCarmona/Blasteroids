@@ -1,61 +1,82 @@
-const canvas = document.querySelector("canvas")
-const ctx = canvas.getContext("2d")
+const canvas = document.querySelector("canvas");
+const ctx = canvas.getContext("2d");
 
-const CANVAS_WIDTH = canvas.width
-const CANVAS_HEIGHT = canvas.height
+const CANVAS_WIDTH = canvas.width;
+const CANVAS_HEIGHT = canvas.height;
+//variables
+let frame = 0;
 
-let frame = 0
+let player = new Player(CANVAS_WIDTH / 2, CANVAS_HEIGHT, "red", [
+  "w",
+  "a",
+  "s",
+  "d"
+]);
 
-let player = new Player(CANVAS_WIDTH/2,CANVAS_HEIGHT,"red", ["w","a","s","d",])
-let bullet = new Bullets()
+let bullet = [new Bullets()];
 
+let background = new Background();
 
-//asteroids 
-let asteroidSprite = ["/images/Sprites/artPack/Aestroids/aestroid_brown.png", "images/Sprites/artPack/Aestroids/aestroid_dark.png","images/Sprites/artPack/Aestroids/aestroid_gay_2.png","images/Sprites/artPack/Aestroids/aestroid_gray.png",]
-let randomAsteroid = Math.floor(Math.random() * asteroidSprite.length)
-let asteroid = [new Asteroids(asteroidSprite[randomAsteroid])]
+//asteroid.js
+let asteroidSprite = [
+  "/images/Sprites/artPack/Aestroids/aestroid_brown.png",
+  "images/Sprites/artPack/Aestroids/aestroid_dark.png",
+  "images/Sprites/artPack/Aestroids/aestroid_gay_2.png",
+  "images/Sprites/artPack/Aestroids/aestroid_gray.png"
+];
+let randomAsteroid = Math.floor(Math.random() * asteroidSprite.length);
+let asteroid = [new Asteroids(asteroidSprite[randomAsteroid])];
 
+//functions
 
 function animation() {
-  updateEverything()
-  drawEverything()
-  window.requestAnimationFrame(animation) // The function animation will be triggered when the brower is ready to draw something again
+  updateEverything();
+  drawEverything();
+  window.requestAnimationFrame(animation); 
 }
-animation()
+animation();
+
+
+
 
 function drawEverything() {
-  // Clearing all the canvas
-  ctx.clearRect(0,0,canvas.width, canvas.height)
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  background.draw(ctx);
   //create player
-  player.draw(ctx)
+  player.draw(ctx);
   //create asteroids
   for (let i = 0; i < asteroid.length; i++) {
-    asteroid[i].draw(ctx)
+    asteroid[i].draw(ctx);
   }
-  if(player.shoot === true) {
-    bullet.draw(ctx)
+  if (player.shoot === true) {
+    for (let i = 0; i < bullet.length; i++) {
+      bullet[i].draw(ctx);
+    }
   }
 }
 
-//onde insereris novos asteroides vais passar uma random source
 
 
-function updateEverything() {
-  frame++
-    player.update()
+  function updateEverything() {
+    frame++;
+    player.update();
+    // asteroid draw
     if (frame % 100 === 0) {
-        let randomAsteroid = Math.floor(Math.random() * asteroidSprite.length)  
-        asteroid.push(new Asteroids((asteroidSprite[randomAsteroid])))
+      let randomAsteroid = Math.floor(Math.random() * asteroidSprite.length);
+      asteroid.push(new Asteroids(asteroidSprite[randomAsteroid]));
     }
-  asteroid.forEach(element => {
-    element.update()
-      
+    asteroid.forEach(element => {
+      element.update();
     });
-    bullet.update()
-  }
-  function removeAsteroids() {
-    if (asteroid[0].y - asteroid[0].size - 20 > CANVAS_HEIGHT)
-      asteroid.shift()
+    
+
+    // background.update();
+    removeAsteroids();
+
+    function removeAsteroids() {
+      if (asteroid[0].y - asteroid[0].size - 20 > CANVAS_HEIGHT)
+        asteroid.shift();
+    }
   }
 
