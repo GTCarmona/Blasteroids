@@ -6,6 +6,7 @@ class Player {
     this.side = 25
     this.color = color
     this.direction = undefined
+    this.shoot = false
 
     document.onkeydown = (event) => {
       if (event.key === keys[0]) {
@@ -20,8 +21,10 @@ class Player {
       if (event.key === keys[3]) {
         this.direction = 'right'
       }
+      if (event.keyCode === 32) {
+        this.shoot = true
     }
-
+  }
     document.onkeyup = (event) => {
       this.direction = undefined
     }

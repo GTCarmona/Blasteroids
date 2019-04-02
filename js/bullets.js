@@ -1,12 +1,16 @@
 class Bullets {
-  constructor(initialX,initialY){
-  this.x = initialX
-  this.y = initialY
-  this.size = 10
+  constructor() {
+    this.size = 10
+    this.x = player.x
+    this.y = player.y
+    this.vy = 1 // Velocity y
+  
   }
-
   draw(ctx) {
-    ctx.fillSyle = "yellow"
-    ctx.fillRect(this.x, this.y, this.side, this.side)
+    ctx.fillStyle = "red"
+    ctx.fillRect(this.x, this.y, this.size, this.size)
+  }
+  update() {
+    this.y -= this.vy
   }
 }
