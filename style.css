@@ -3,7 +3,7 @@
 }
 
 #main-play-area {
-  width: 600px;
+  width: 640px;
   height: 380px;
   background-image: url('images/backgroun2.jpg_large');
   background-size: cover;
@@ -14,7 +14,15 @@ h1 {
   margin: auto;
   text-align: center;
   height: 50px;
-  margin:25px;
+  margin:5px;
+}
+#player {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  left: 10px;
+  top: 150px;
+  transform: rotate(+90deg);
 }
 #instructions-text {
   position: relative;
@@ -31,18 +39,13 @@ h1 {
 #start-button:hover {
   cursor: pointer;
 }
-#player {
-  width: 50px;
-  height: 50px;
-  position: relative;
-  left: 20px;
-  top: 180px;
-  transform: rotate(-90deg);
-}
 
 .laser {
   width: 20px;
-  height: 10px;
+  height: 20px;
   position: relative;
 }
-
+.asteroid{
+  height: 60px;
+  width: 60px;
+}
