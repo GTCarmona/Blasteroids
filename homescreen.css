@@ -1,0 +1,27 @@
+body {
+background-image: url("900628.png");
+background-size: cover;
+background-repeat: no-repeat;
+}
+
+* {
+  font-family: roboto;
+}
+h1 {
+  margin: auto;
+  text-align: center;
+  height: 50px;
+  margin:5px;
+  color: purple;
+}
+
+.menu { 
+  margin:auto;
+  display:flex;
+  justify-content: center;
+  flex-direction: column;
+}
+#starGame {
+  border-radius: 6px;
+
+}
