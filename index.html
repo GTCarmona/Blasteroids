@@ -6,14 +6,38 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" type="image/x-icon" href="images/Sprites/artPack/Aestroids/aestroid_brown.png" />
   <title>Project B</title>
 </head>
 
 <body>
-  <h1>PROJECT B </h1>
+  
+  <h1>Space Blast </h1>
+  <audio id="background-music"><source src="2019-01-02_-_8_Bit_Menu_-_David_Renda_-_FesliyanStudios.com.mp3" type="audio/mpeg" /></audio>
+  <audio id="game-over"><source src="256091__soundeffectspodcast-com__game-over-voice-2b.wav" type="audio/wav" /></audio>
+  
+  <div id="Board">
+  <h2 id= "scoreboard">Score </h2>
 
+  <h3 id="score">Highscores</h3>
+ <table>
+<tr> 
+  <th id="high-score-1-name"></th>
+  <th id="high-score-1-score"></th>
+</tr>
+<tr>
+  <th id="high-score-2-name"></th>
+  <th id="high-score-2-score"></th>
+</tr>
+<tr>
+    <th id="high-score-3-name"></th>
+    <th id="high-score-3-score"></th>
+</tr>
 
-  <canvas width="380" height="320"></canvas>
+ </table>
+</div>
+
+  <canvas width="480" height="320"></canvas>
   <script type="text/javascript" src="js/background.js"></script>
   <script type="text/javascript" src="js/bullet.js"></script>
   <script type="text/javascript" src="js/player.js"></script>

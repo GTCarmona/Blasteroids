@@ -7,11 +7,12 @@ class Player {
     this.direction = undefined
     this.shoot = false
     this.frameBeforeShooting = 3 // We need to wait 5 frames to shoot
-
     this.isUpPressed = false
     this.isLeftPressed = false
     this.isDownPressed = false
     this.isRightPressed = false
+
+
 
     document.onkeydown = (event) => {
       if (event.keyCode === 38) {
@@ -27,6 +28,7 @@ class Player {
         this.isRightPressed = true
       }
       if (event.keyCode === 32) {
+        blastSound.play()
         this.shoot = true
       }
     }
@@ -95,6 +97,6 @@ class Player {
     let imageSize = 2.7*this.radius
     ctx.drawImage(shipSprite, this.x-imageSize/2, this.y-imageSize/2, imageSize, imageSize)
   }
-
+ 
 
 }

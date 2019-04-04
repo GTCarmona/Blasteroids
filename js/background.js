@@ -1,7 +1,7 @@
 class Background {
   constructor() {
     this.backgroundImg = new Image()
-    this.backgroundImg.src = "images/starsbackground.png"
+    this.backgroundImg.src = "../images/background2.png"
     this.y = 0
     this.width = CANVAS_WIDTH
     this.height = CANVAS_HEIGHT

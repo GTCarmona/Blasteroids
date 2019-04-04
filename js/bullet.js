@@ -2,8 +2,8 @@ class Bullet {
   constructor() {
     this.radius = 3
     this.x = player.x
-    this.y = player.y
-    this.vy = -4 // Velocity y
+    this.y = player.y - player.radius
+    this.vy = -12 // Velocity y
   
   }
   draw(ctx) {
@@ -28,6 +28,7 @@ class Bullet {
   }
   update() {
     this.y += this.vy
+    
   }
 
 }
