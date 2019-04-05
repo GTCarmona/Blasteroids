@@ -66,7 +66,7 @@ function resetGame() {
 let status = true
 //asteroid.js
 let asteroidSprite = [
-  "/images/Sprites/artPack/Aestroids/aestroid_brown.png",
+  "\images/Sprites/artPack/Aestroids/aestroid_brown.png",
   "images/Sprites/artPack/Aestroids/aestroid_dark.png",
   "images/Sprites/artPack/Aestroids/aestroid_gay_2.png",
   "images/Sprites/artPack/Aestroids/aestroid_gray.png"
@@ -300,7 +300,9 @@ function gameOver() {
   page = "game-over"
   bgm.pause()
   gameOverVoice.play()
-  saveScore(scoreboard.totalScore)
+  setTimeout(() => {
+    saveScore(scoreboard.totalScore)
+  }, 1000)
   renderHighScores()
   document.getElementById("scoreboard").innerHTML ="Score : 00"
 }
@@ -355,6 +357,11 @@ function getHighScores() {
   if (!highScores) {
     highScores = []
   }
+  highScores.push({score:0, name: ""})
+  highScores.push({score:0, name: ""})
+  highScores.push({score:0, name: ""})
+  highScores.push({score:0, name: ""})
+  highScores.push({score:0, name: ""})
   return highScores
 }
 function saveScore(newScore) {
