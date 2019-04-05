@@ -6,38 +6,40 @@ const CANVAS_WIDTH = canvas.width;
 const CANVAS_HEIGHT = canvas.height;
 //variables
 let page = "home"
-
+let reachedScore = false
+let reachedScore200 = false
+let reachedScore400 = false
+let reachedScore600 = false
+let reachedScore800 = false
+let reachedScore1100 = false
+let reachedScore1500 = false
 let blastSound = new Audio()
 blastSound.src = "audio/Weapons/Lasers/sfx_wpn_laser8.wav"
 
 let explosionAsteroid = new Audio()
 explosionAsteroid.src = "audio/Explosions/Shortest/sfx_exp_shortest_hard8.wav"
 
+let bgm = new Audio()
+bgm.src = "2019-01-02_-_8_Bit_Menu_-_David_Renda_-_FesliyanStudios.com.mp3"
+
+let deathAudio = new Audio()
+deathAudio.src = "audio/Explosions/Double/sfx_exp_double1.wav"
 
 let milestoneAudio1 = new Audio()
-milestoneAudio1.loop = false
 milestoneAudio1.src = "MP3/eagleeye.mp3"
-
 let milestoneAudio2 = new Audio()
-milestoneAudio2.loop = false
 milestoneAudio2.src = "MP3/impressive.mp3"
-
 let milestoneAudio3 = new Audio()
-milestoneAudio3.loop = false
 milestoneAudio3.src = "MP3/unreal.mp3"
-
 let milestoneAudio4 = new Audio()
-milestoneAudio4.loop = false
 milestoneAudio4.src = "MP3/rocketscientist.mp3"
-
-
 let milestoneAudio5 = new Audio()
-milestoneAudio5.loop = false
 milestoneAudio5.src = "MP3/unstoppable.mp3"
-
 let milestoneAudio6 = new Audio()
-milestoneAudio6.loop = false
 milestoneAudio6.src = "MP3/godlike.mp3"
+let milestoneAudio7 = new Audio()
+milestoneAudio7.src = "MP3/godlike.mp3"
+
 
 let gameOverVoice = document.getElementById("game-over")
 let backgroundMusic = document.getElementById("background-music")
@@ -50,7 +52,7 @@ let background
 let asteroids
 
 function resetGame() {
-  backgroundMusic.play()
+  bgm.play()
   frame = 0;
   time = 60
   player = new Player(CANVAS_WIDTH / 2, CANVAS_HEIGHT)
@@ -140,7 +142,6 @@ function updateEverything() {
   }
   for (let i = 0; i < asteroids.length; i++) { // asteroid -- player
        if (checkCollisionPlayer(player, asteroids[i])) {
-        
          gameOver()
        }
       } 
@@ -150,6 +151,7 @@ function updateEverything() {
       IncreaseDifficulty600 ()
       IncreaseDifficulty800 ()
       IncreaseDifficulty1000()
+      IncreaseDifficulty1500()
       playMileStone ()
       
       background.update();
@@ -184,34 +186,51 @@ function removeAsteroids() {
 }
 
 
-function playMileStone () {
-  for (let i = 0; i < asteroids.length; i++) {
-    if (scoreboard.totalScore === 200) 
-      milestoneAudio1.play()
+function playMileStone() {
+  if (scoreboard.totalScore === 200 && !reachedScore200) {
+    reachedScore200 = true
+    milestoneAudio1.play()
+    setTimeout(() => {
+      milestoneAudio1.pause()
+    }, 2000);
   }
-for (let i = 0; i < asteroids.length; i++) {
-    if (scoreboard.totalScore === 400) 
+  if (scoreboard.totalScore === 400 && !reachedScore400) {
+    reachedScore400 = true
     milestoneAudio2.play()
-}
-for (let i = 0; i < asteroids.length; i++) {
-    if (scoreboard.totalScore === 600) 
+    setTimeout(() => {
+      milestoneAudio2.pause()
+    }, 2500);
+  }
+  if (scoreboard.totalScore === 600 && !reachedScore600) {
+    reachedScore600 = true
     milestoneAudio3.play()
-}
-for (let i = 0; i < asteroids.length; i++) {
-    if (scoreboard.totalScore === 800) 
+    setTimeout(() => {
+      milestoneAudio3.pause()
+    }, 2000);
+  }
+  if (scoreboard.totalScore === 800 && !reachedScore800) {
+    reachedScore800 = true
     milestoneAudio4.play()
-}
-for (let i = 0; i < asteroids.length; i++) {
-    if (scoreboard.totalScore === 1100) 
+    setTimeout(() => {
+      milestoneAudio4.pause()
+    }, 2000);
+  }
+  if (scoreboard.totalScore === 1100 && !reachedScore1100) {
+    reachedScore1100 = true
     milestoneAudio5.play()
-    
-}
-for (let i = 0; i < asteroids.length; i++) {
-  if (scoreboard.totalScore === 1500) 
-  milestoneAudio6.play()
-}
-}
+    setTimeout(() => {
+      milestoneAudio5.pause()
+    }, 3000);
+  }
+  if (scoreboard.totalScore === 1500 && !reachedScore1500) {
+    reachedScore1500 = true
+    milestoneAudio6.play()
+    setTimeout(() => {
+      milestoneAudio6.pause()
+    }, 2500);
+  }
 
+}
 function IncreaseDifficulty200() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 200) {
@@ -237,7 +256,7 @@ function IncreaseDifficulty400() {
 function IncreaseDifficulty600() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 600) {
-      asteroids[i].vy = 4.5
+      asteroids[i].vy = 5.3
       time = 18
       background.y += 0.2
       
@@ -248,8 +267,8 @@ function IncreaseDifficulty600() {
 function IncreaseDifficulty800() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 800) {
-      asteroids[i].vy = 5.0
-      time = 18
+      asteroids[i].vy = 5.5
+      time = 15
       background.y += 0.2
       
     }
@@ -259,30 +278,31 @@ function IncreaseDifficulty800() {
 function IncreaseDifficulty1000() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 1100) {
-      asteroids[i].vy = 5.5
-      time = 15
-      background.y += 0.1
-      bullets.vy =-16
+      asteroids[i].vy = 6
+      time = 10
+      background.y += 0.3
+      bullets.vy =-19
     }
   }
 }
-function IncreaseDifficulty1000() {
+function IncreaseDifficulty1500() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 1500) {
-      asteroids[i].vy = 6
+      asteroids[i].vy = 6.5
       time = 10
-      background.y += 0.1
+      background.y += 0.4
       
     }
   }
 }
+
 function gameOver() {
   page = "game-over"
-  backgroundMusic.pause()
+  bgm.pause()
   gameOverVoice.play()
   saveScore(scoreboard.totalScore)
   renderHighScores()
-  scoreboard.totalScore = 0
+  document.getElementById("scoreboard").innerHTML ="Score : 00"
 }
 
 window.onkeydown = event => {
@@ -300,7 +320,7 @@ function drawGameOverPage() {
   ctx.fillRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT)
   //Text
   ctx.fillStyle = "red"
-  ctx.font = "80px modithorsonexpandital"
+  ctx.font = "110px modithorsongrad"
   ctx.textAlign = "center"
   ctx.fillText("Game Over", CANVAS_WIDTH/ 2, 200)
   ctx.font = "30px modithorsonexpandital"
@@ -340,7 +360,7 @@ function getHighScores() {
 function saveScore(newScore) {
   let highScores = getHighScores()
   highScores.push({
-    name: prompt('Enter your name', 'AAA'),
+    name: prompt('Enter your name', "AAA"),
     score: newScore
   })
   highScores.sort((a,b) => {
@@ -356,13 +376,12 @@ function renderHighScores() {
   document.getElementById('high-score-2-name').innerText = highScores[1].name
   document.getElementById('high-score-3-score').innerText = highScores[2].score
   document.getElementById('high-score-3-name').innerText = highScores[2].name
-  document.getElementById('high-score-3-score').innerText = highScores[3].score
-  document.getElementById('high-score-3-name').innerText = highScores[3].name
-  document.getElementById('high-score-3-score').innerText = highScores[4].score
-  document.getElementById('high-score-3-name').innerText = highScores[4].name
-  document.getElementById('high-score-3-score').innerText = highScores[5].score
-  document.getElementById('high-score-3-name').innerText = highScores[5].name
-}
+  document.getElementById('high-score-4-score').innerText = highScores[3].score
+  document.getElementById('high-score-4-name').innerText = highScores[3].name
+  document.getElementById('high-score-5-score').innerText = highScores[4].score
+  document.getElementById('high-score-5-name').innerText = highScores[4].name
+  
+  }
 renderHighScores()
 
 

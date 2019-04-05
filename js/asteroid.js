@@ -3,7 +3,7 @@ class Asteroid {
     this.radius = 35
     this.x = this.radius + Math.floor((CANVAS_WIDTH - 2 * this.radius + 1) * Math.random())
     this.y = -this.radius - 30
-    this.vy = 2.1 // Velocity y
+    this.vy = 3.0 // Velocity y
     this.angle = 0
     this.scale = 1
     
