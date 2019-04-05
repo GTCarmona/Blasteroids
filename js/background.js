@@ -14,8 +14,7 @@ class Background {
     ctx.drawImage(this.backgroundImg, 0, this.y, this.width,this.height)   
     ctx.drawImage(this.backgroundImg, 0, this.y-this.height, this.width,this.height)   
   }
-
-
+  
   update(){
     this.y += 0.7
     if(this.y > CANVAS_HEIGHT)

@@ -6,13 +6,15 @@ const CANVAS_WIDTH = canvas.width;
 const CANVAS_HEIGHT = canvas.height;
 //variables
 let page = "home"
-let reachedScore = false
+
 let reachedScore200 = false
 let reachedScore400 = false
 let reachedScore600 = false
 let reachedScore800 = false
 let reachedScore1100 = false
 let reachedScore1500 = false
+let reachedScore1800 = false
+let reachedScore2000 = false
 let blastSound = new Audio()
 blastSound.src = "audio/Weapons/Lasers/sfx_wpn_laser8.wav"
 
@@ -37,8 +39,10 @@ let milestoneAudio5 = new Audio()
 milestoneAudio5.src = "MP3/unstoppable.mp3"
 let milestoneAudio6 = new Audio()
 milestoneAudio6.src = "MP3/godlike.mp3"
+let milestoneAudioX = new Audio()
+milestoneAudioX.src = "MP3/maniac.mp3"
 let milestoneAudio7 = new Audio()
-milestoneAudio7.src = "MP3/godlike.mp3"
+milestoneAudio7.src = "MP3/blazeofglory.mp3"
 
 
 let gameOverVoice = document.getElementById("game-over")
@@ -80,6 +84,7 @@ function animation() {
   if (page === "game") {
     updateEverything();
     drawEverything();
+    renderHighScores()
 
   }
   if (page === "game-over")
@@ -145,19 +150,17 @@ function updateEverything() {
          gameOver()
        }
       } 
-      
       IncreaseDifficulty200 ()
       IncreaseDifficulty400 ()
       IncreaseDifficulty600 ()
       IncreaseDifficulty800 ()
       IncreaseDifficulty1000()
       IncreaseDifficulty1500()
+      IncreaseDifficulty2000()
       playMileStone ()
-      
       background.update();
       removeBullets()
       removeAsteroids();
-
     }
 
 function checkCollisionBullets(bullet, asteroid) {
@@ -176,7 +179,6 @@ function removeBullets() {
       bullets.shift();
   }
 }
-
 
 function removeAsteroids() {
   for (let i = 0; i < asteroids.length; i++) {
@@ -229,8 +231,22 @@ function playMileStone() {
       milestoneAudio6.pause()
     }, 2500);
   }
-
+    if (scoreboard.totalScore === 1800 && !reachedScore1800) {
+      reachedScore1800 = true
+      milestoneAudioX.play()
+      setTimeout(() => {
+        milestoneAudioX.pause()
+      }, 2500);
+  }
+  if (scoreboard.totalScore === 2000 && !reachedScore2000) {
+    reachedScore2000 = true
+    milestoneAudio7.play()
+    setTimeout(() => {
+      milestoneAudio7.pause()
+    }, 3000);
+  }
 }
+
 function IncreaseDifficulty200() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 200) {
@@ -241,6 +257,7 @@ function IncreaseDifficulty200() {
     }
   }
 }
+
 
 function IncreaseDifficulty400() {
   for (let i = 0; i < asteroids.length; i++) {
@@ -278,19 +295,30 @@ function IncreaseDifficulty800() {
 function IncreaseDifficulty1000() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 1100) {
-      asteroids[i].vy = 6
+      asteroids[i].vy = 6.2
       time = 10
       background.y += 0.3
       bullets.vy =-19
+      player.speed = 5
     }
   }
 }
 function IncreaseDifficulty1500() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 1500) {
-      asteroids[i].vy = 6.5
+      asteroids[i].vy = 7
       time = 10
       background.y += 0.4
+      
+    }
+  }
+}
+function IncreaseDifficulty2000() {
+  for (let i = 0; i < asteroids.length; i++) {
+    if (scoreboard.totalScore >= 2000) {
+      asteroids[i].vy = 7.5
+      time = 6
+      background.y += 0.2
       
     }
   }
@@ -301,16 +329,17 @@ function gameOver() {
   bgm.pause()
   gameOverVoice.play()
   setTimeout(() => {
-    saveScore(scoreboard.totalScore)
-  }, 1000)
+  saveScore(scoreboard.totalScore)
   renderHighScores()
-  document.getElementById("scoreboard").innerHTML ="Score : 00"
+  }, 1000)
+ 
 }
 
 window.onkeydown = event => {
   if (event.keyCode === 13) { // Enter
     page = "game"
     resetGame()
+    document.getElementById("scoreboard").innerHTML ="Score : 00"
     
   }
 }
