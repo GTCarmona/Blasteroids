@@ -7,6 +7,8 @@ const CANVAS_HEIGHT = canvas.height;
 //variables
 let page = "home"
 
+
+
 let reachedScore200 = false
 let reachedScore400 = false
 let reachedScore600 = false
@@ -15,8 +17,12 @@ let reachedScore1100 = false
 let reachedScore1500 = false
 let reachedScore1800 = false
 let reachedScore2000 = false
+let reachedScore2500 = false
+
 let blastSound = new Audio()
 blastSound.src = "audio/Weapons/Lasers/sfx_wpn_laser8.wav"
+
+
 
 let explosionAsteroid = new Audio()
 explosionAsteroid.src = "audio/Explosions/Shortest/sfx_exp_shortest_hard8.wav"
@@ -28,7 +34,7 @@ let deathAudio = new Audio()
 deathAudio.src = "audio/Explosions/Double/sfx_exp_double1.wav"
 
 let milestoneAudio1 = new Audio()
-milestoneAudio1.src = "MP3/eagleeye.mp3"
+milestoneAudio1.src = "MP3/topgun.mp3"
 let milestoneAudio2 = new Audio()
 milestoneAudio2.src = "MP3/impressive.mp3"
 let milestoneAudio3 = new Audio()
@@ -42,7 +48,11 @@ milestoneAudio6.src = "MP3/godlike.mp3"
 let milestoneAudioX = new Audio()
 milestoneAudioX.src = "MP3/maniac.mp3"
 let milestoneAudio7 = new Audio()
-milestoneAudio7.src = "MP3/blazeofglory.mp3"
+milestoneAudio7.src = "MP3/dominating.mp3"
+let milestoneAudio8 = new Audio()
+milestoneAudio8.src = "MP3/blazeofglory.mp3"
+
+
 
 
 let gameOverVoice = document.getElementById("game-over")
@@ -157,6 +167,7 @@ function updateEverything() {
       IncreaseDifficulty1000()
       IncreaseDifficulty1500()
       IncreaseDifficulty2000()
+      IncreaseDifficulty2500()
       playMileStone ()
       background.update();
       removeBullets()
@@ -245,12 +256,19 @@ function playMileStone() {
       milestoneAudio7.pause()
     }, 3000);
   }
+  if (scoreboard.totalScore === 2500 && !reachedScore2500) {
+    reachedScore2500 = true
+    milestoneAudio8.play()
+    setTimeout(() => {
+      milestoneAudio8.pause()
+    }, 3000);
+  }
 }
 
 function IncreaseDifficulty200() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 200) {
-      asteroids[i].vy = 4
+      asteroids[i].vy = 4.6
       time = 40
       background.y += 0.2
   
@@ -262,7 +280,7 @@ function IncreaseDifficulty200() {
 function IncreaseDifficulty400() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 400) {
-      asteroids[i].vy = 4.5
+      asteroids[i].vy = 5
       time = 30
       background.y += 0.2
       
@@ -273,9 +291,10 @@ function IncreaseDifficulty400() {
 function IncreaseDifficulty600() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 600) {
-      asteroids[i].vy = 5.3
+      asteroids[i].vy = 6
       time = 18
       background.y += 0.2
+      player.speed = 5
       
     }
   }
@@ -284,7 +303,7 @@ function IncreaseDifficulty600() {
 function IncreaseDifficulty800() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 800) {
-      asteroids[i].vy = 5.5
+      asteroids[i].vy = 6.5
       time = 15
       background.y += 0.2
       
@@ -295,11 +314,11 @@ function IncreaseDifficulty800() {
 function IncreaseDifficulty1000() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 1100) {
-      asteroids[i].vy = 6.2
+      asteroids[i].vy = 6.5
       time = 10
       background.y += 0.3
       bullets.vy =-19
-      player.speed = 5
+      player.speed = 6
     }
   }
 }
@@ -317,8 +336,20 @@ function IncreaseDifficulty2000() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 2000) {
       asteroids[i].vy = 7.5
-      time = 6
+      time = 8
       background.y += 0.2
+      player.speed = 7
+      
+    }
+  }
+}
+function IncreaseDifficulty2500() {
+  for (let i = 0; i < asteroids.length; i++) {
+    if (scoreboard.totalScore >= 2500) {
+      asteroids[i].vy = 7.7
+      time = 6
+      
+      player.speed = 7
       
     }
   }
@@ -327,6 +358,7 @@ function IncreaseDifficulty2000() {
 function gameOver() {
   page = "game-over"
   bgm.pause()
+  deathAudio.play()
   gameOverVoice.play()
   setTimeout(() => {
   saveScore(scoreboard.totalScore)
@@ -419,5 +451,3 @@ function renderHighScores() {
   
   }
 renderHighScores()
-
-
