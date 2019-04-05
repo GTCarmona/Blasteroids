@@ -1,6 +1,6 @@
 class Bullet {
   constructor() {
-    this.radius = 3
+    this.radius = 5
     this.x = player.x
     this.y = player.y - player.radius
     this.vy = -12 // Velocity y

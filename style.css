@@ -6,44 +6,59 @@
 *{
 font-family: modithorsongrad;
 text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+font-size: 40px;
 }
 body{
-  background-color: black
+  background-color: black;
 }
 canvas {
   display:block;
-  border: 1px solid black;
+
   margin: 0 auto;
+  padding-top: 80px;
   
 }
 h1 {
-  padding-top: 15px;
+  padding-top: 15px 0 15px 0;
   margin: auto;
   text-align: center;
   height: 50px;
   margin:5px;
+  margin-top: 20px;
   color:black;
-  font-size: 60px;
-
-  
+  font-size: 100px;
 }
 
 #scoreboard {
   color:black;
-
+  font-family: modithorsongrad;
+  text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+  margin-left: 1400px;
+  margin-top: 200px;
+  position: absolute;
+  width: 400px;
   
 }
 
 #score {
   color:black;
+  font-family: modithorsongrad;
+  text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+  height: 10px;
 
 }
 #Board {
   display: flex;
   flex-direction: column;
-  width: 19%;
+  width: 25%;
   font-size: 10px;
   position: absolute;
   font-size: 12px;
+  align-content: center;
 }
+h3 {
+  margin-left: 90px;
+  margin-top: 200px;
+}
+
 

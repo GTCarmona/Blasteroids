@@ -1,6 +1,6 @@
 class Asteroid {
   constructor(sprite) {
-    this.radius = 20
+    this.radius = 35
     this.x = this.radius + Math.floor((CANVAS_WIDTH - 2 * this.radius + 1) * Math.random())
     this.y = -this.radius - 30
     this.vy = 2.1 // Velocity y

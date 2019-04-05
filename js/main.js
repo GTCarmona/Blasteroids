@@ -16,7 +16,7 @@ explosionAsteroid.src = "audio/Explosions/Shortest/sfx_exp_shortest_hard8.wav"
 
 let milestoneAudio1 = new Audio()
 milestoneAudio1.loop = false
-milestoneAudio1.src = "MP3/gunslinger.mp3"
+milestoneAudio1.src = "MP3/eagleeye.mp3"
 
 let milestoneAudio2 = new Audio()
 milestoneAudio2.loop = false
@@ -215,7 +215,7 @@ for (let i = 0; i < asteroids.length; i++) {
 function IncreaseDifficulty200() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 200) {
-      asteroids[i].vy = 3.5
+      asteroids[i].vy = 4
       time = 40
       background.y += 0.2
   
@@ -226,7 +226,7 @@ function IncreaseDifficulty200() {
 function IncreaseDifficulty400() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 400) {
-      asteroids[i].vy = 4
+      asteroids[i].vy = 4.5
       time = 30
       background.y += 0.2
       
@@ -238,7 +238,7 @@ function IncreaseDifficulty600() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 600) {
       asteroids[i].vy = 4.5
-      time = 20
+      time = 18
       background.y += 0.2
       
     }
@@ -249,7 +249,7 @@ function IncreaseDifficulty800() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 800) {
       asteroids[i].vy = 5.0
-      time = 20
+      time = 18
       background.y += 0.2
       
     }
@@ -262,15 +262,15 @@ function IncreaseDifficulty1000() {
       asteroids[i].vy = 5.5
       time = 15
       background.y += 0.1
-      
+      bullets.vy =-16
     }
   }
 }
 function IncreaseDifficulty1000() {
   for (let i = 0; i < asteroids.length; i++) {
     if (scoreboard.totalScore >= 1500) {
-      asteroids[i].vy = 5.5
-      time = 8
+      asteroids[i].vy = 6
+      time = 10
       background.y += 0.1
       
     }
@@ -300,11 +300,11 @@ function drawGameOverPage() {
   ctx.fillRect(0,0,CANVAS_WIDTH,CANVAS_HEIGHT)
   //Text
   ctx.fillStyle = "red"
-  ctx.font = "50px modithorsonexpandital"
+  ctx.font = "80px modithorsonexpandital"
   ctx.textAlign = "center"
-  ctx.fillText("Game Over", CANVAS_WIDTH/ 2, 100)
-  ctx.font = "20px modithorsonexpandital"
-  ctx.fillText("Press Enter to Re-Start", CANVAS_WIDTH/ 2, 200)
+  ctx.fillText("Game Over", CANVAS_WIDTH/ 2, 200)
+  ctx.font = "30px modithorsonexpandital"
+  ctx.fillText("Press Enter to Re-Start", CANVAS_WIDTH/ 2, 400)
 
   ctx.restore()
 }
@@ -319,12 +319,12 @@ function drawHomePage() {
   
   // Text
   ctx.fillStyle = "white"
-  ctx.font = "30px modithorsongrad"
+  ctx.font = "50px modithorsongrad"
   ctx.textAlign = "center"
   ctx.fillText("Instructions:",CANVAS_WIDTH/ 2, 100)
-  ctx.fillText("Move with arrowkeys", CANVAS_WIDTH/ 2, 150)
-  ctx.fillText("Press Space to blast", CANVAS_WIDTH/ 2, 180)
-  ctx.fillText("Press Enter to Start", CANVAS_WIDTH/ 2, 250)
+  ctx.fillText("Move with arrowkeys", CANVAS_WIDTH/ 2, 200)
+  ctx.fillText("Press Space to blast", CANVAS_WIDTH/ 2, 250)
+  ctx.fillText("Press Enter to Start", CANVAS_WIDTH/ 2, 400)
 
   ctx.restore()
 }
@@ -356,6 +356,12 @@ function renderHighScores() {
   document.getElementById('high-score-2-name').innerText = highScores[1].name
   document.getElementById('high-score-3-score').innerText = highScores[2].score
   document.getElementById('high-score-3-name').innerText = highScores[2].name
+  document.getElementById('high-score-3-score').innerText = highScores[3].score
+  document.getElementById('high-score-3-name').innerText = highScores[3].name
+  document.getElementById('high-score-3-score').innerText = highScores[4].score
+  document.getElementById('high-score-3-name').innerText = highScores[4].name
+  document.getElementById('high-score-3-score').innerText = highScores[5].score
+  document.getElementById('high-score-3-name').innerText = highScores[5].name
 }
 renderHighScores()
 

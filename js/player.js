@@ -3,7 +3,7 @@ class Player {
     this.x = initialX
     this.y = initialY
     this.speed = 4
-    this.radius = 20
+    this.radius = 30
     this.direction = undefined
     this.shoot = false
     this.frameBeforeShooting = 3 // We need to wait 5 frames to shoot
