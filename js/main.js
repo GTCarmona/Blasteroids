@@ -66,7 +66,7 @@ function resetGame() {
 let status = true
 //asteroid.js
 let asteroidSprite = [
-  "\images/Sprites/artPack/Aestroids/aestroid_brown.png",
+  "images/Sprites/artPack/Aestroids/aestroid_brown.png",
   "images/Sprites/artPack/Aestroids/aestroid_dark.png",
   "images/Sprites/artPack/Aestroids/aestroid_gay_2.png",
   "images/Sprites/artPack/Aestroids/aestroid_gray.png"
