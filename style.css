@@ -8,22 +8,31 @@ text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
 font-size: 40px;
 }
 body{
- background-color: black;
+    background-color: black;
 }
-canvas {
- display:block;
+body h1  {
+    text-align: center
+}
+.game-container {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap:wrap; */
+    border: 5px solid white;
 
- margin: 0 auto;
- padding-top: 80px;
+  }
+canvas {
+ /* display:block; */
+ border: 5px solid yellow
+ 
  
 }
 h1 {
- padding-top: 15px 0 15px 0;
- margin: auto;
- text-align: center;
- height: 50px;
+ /* padding-top: 15px 0 15px 0; */
+ /* margin: auto; */
+ /* text-align: center; */
+ /* height: 50px;
  margin:5px;
- margin-top: 20px;
+ margin-top: 20px; */
  color:black;
  font-size: 100px;
 }
@@ -32,21 +41,26 @@ h1 {
  color:black;
  font-family: modithorsongrad;
  text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
- margin-left: 1400px;
- margin-top: 200px;
- position: absolute;
- width: 400px;
+ width: 20%;
+ border: 5px solid yellow
  
 }
+ .highscores-table {
+    border: 5px solid yellow;
+    text-align: center;
+}
+
 
 #score {
  color:black;
  font-family: modithorsongrad;
  text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
+ width: 200px;
+
  height: 10px;
 
 }
-#Board {
+/* #Board {
  display: flex;
  flex-direction: column;
  width: 25%;
@@ -54,9 +68,6 @@ h1 {
  position: absolute;
  font-size: 12px;
  align-content: center;
-}
-h3 {
- margin-left: 90px;
- margin-top: 200px;
-}
+} */
+
 

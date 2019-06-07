@@ -15,6 +15,8 @@ class Player {
 
 
     document.onkeydown = (event) => {
+      event.preventDefault();
+
       if (event.keyCode === 38) {
         this.isUpPressed = true
       }
@@ -33,7 +35,10 @@ class Player {
       }
     }
     document.onkeyup = (event) => {
+      event.preventDefault();
+
       if (event.keyCode === 38) {
+        
         this.isUpPressed = false
       }
       if (event.keyCode === 37) {

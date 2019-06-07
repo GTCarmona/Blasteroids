@@ -13,44 +13,45 @@
 <body>
   
   <h1>BLASTEROIDS </h1>
-  <!-- <audio id="background-music" loop><source src="2019-01-02_-_8_Bit_Menu_-_David_Renda_-_FesliyanStudios.com.mp3" type="audio/mpeg" /></audio> -->
   <audio id="game-over"><source src="256091__soundeffectspodcast-com__game-over-voice-2b.wav" type="audio/wav" /></audio>
-  <!-- <audio id="game-over"><source src="MP3/eagleeye.mp3" type="audio/wav" /></audio>
-  <audio id="game-over"><source src="MP3/impressive.mp3" type="audio/wav" /></audio>
-  <audio id="game-over"><source src="MP3/unreal.mp3" type="audio/wav" /></audio>
-  <audio id="game-over"><source src="MP3/rocketscientist.mp3" type="audio/wav" /></audio>
-  <audio id="game-over"><source src="MP3/unstoppable.mp3" type="audio/wav" /></audio>
-  <audio id="game-over"><source src="MP3/godlike.mp3" type="audio/wav" /></audio> -->
-  <div id="Board">
-  <h2 id= "scoreboard">Score : 00 </h2>
-
-  <h3 id="score">Highscores</h3>
- <table>
-<tr> 
-  <th id="high-score-1-name"></th>
-  <th id="high-score-1-score"></th>
-</tr>
-<tr>
-  <th id="high-score-2-name"></th>
-  <th id="high-score-2-score"></th>
-</tr>
-<tr>
-    <th id="high-score-3-name"></th>
-    <th id="high-score-3-score"></th>
-</tr>
-<tr>
-  <th id="high-score-4-name"></th>
-  <th id="high-score-4-score"></th>
-</tr>
-<tr>
-  <th id="high-score-5-name"></th>
-  <th id="high-score-5-score"></th>
-</tr>
-
- </table>
-</div>
-
-  <canvas width="960%" height="650%"></canvas>
+ 
+  <div class="game-container">
+    <!-- <div id="Board"> -->
+      
+      <table class="highscores-table">
+        <tr>
+          <th>Highscores:</th>
+        </tr>
+        <tr>
+          <th id="high-score-1-name"></th>
+          <th id="high-score-1-score"></th>
+        </tr>
+        <tr>
+          <th id="high-score-2-name"></th>
+          <th id="high-score-2-score"></th>
+      </tr>
+      <tr>
+        <th id="high-score-3-name"></th>
+        <th id="high-score-3-score"></th>
+      </tr>
+      <tr>
+        <th id="high-score-4-name"></th>
+        <th id="high-score-4-score"></th>
+      </tr>
+      <tr>
+        <th id="high-score-5-name"></th>
+        <th id="high-score-5-score"></th>
+      </tr>
+    </table>
+    
+    <canvas width="800%" height="600%">
+    </canvas>
+        <div id="scoreboard">
+          Score : 00 
+        </div>
+  </div>
+  <!-- </div> -->
+  
   <script type="text/javascript" src="js/background.js"></script>
   <script type="text/javascript" src="js/bullet.js"></script>
   <script type="text/javascript" src="js/player.js"></script>
