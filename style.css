@@ -5,69 +5,67 @@
 *{
 font-family: modithorsongrad;
 text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
-font-size: 40px;
+font-size: 30px;
 }
 body{
     background-color: black;
+    margin: 0%;
 }
-body h1  {
-    text-align: center
-}
+
 .game-container {
     display: flex;
     flex-direction: row;
     /* flex-wrap:wrap; */
-    border: 5px solid white;
-
+        width: 100%;
   }
-canvas {
+
+  @media (max-width: 900px) {
+    table {
+        display: block;
+    }
+    tr {
+        display: block;
+    }
+    td {
+        display: block;
+    }
+}
+#canvas {
  /* display:block; */
- border: 5px solid yellow
  
- 
+ width: 65%;
+ height: auto;
 }
-h1 {
- /* padding-top: 15px 0 15px 0; */
- /* margin: auto; */
- /* text-align: center; */
- /* height: 50px;
- margin:5px;
- margin-top: 20px; */
- color:black;
- font-size: 100px;
-}
+#highscores {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
 
+}
 #scoreboard {
- color:black;
- font-family: modithorsongrad;
- text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
- width: 20%;
- border: 5px solid yellow
- 
-}
- .highscores-table {
-    border: 5px solid yellow;
-    text-align: center;
+ padding-left: 10px;
+ text-align: left;
 }
 
+#highscores-table  {
+    text-align: left;
+    min-width: 30%;
+
+}
 
 #score {
  color:black;
  font-family: modithorsongrad;
- text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
- width: 200px;
-
  height: 10px;
 
 }
-/* #Board {
- display: flex;
- flex-direction: column;
- width: 25%;
- font-size: 10px;
- position: absolute;
- font-size: 12px;
- align-content: center;
-} */
+h1 {
+ color:black;
+ font-size: 100px;
+ text-align: center;
+ margin:0;
+ padding: 15px
+
+}
 
 

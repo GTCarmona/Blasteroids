@@ -8,7 +8,7 @@ class Scoreboard {
 
 update() {
   this.totalScore+= 25
-  document.getElementById("scoreboard").innerHTML =`Score : ${this.totalScore}`
+  document.getElementById("scoreboard").innerHTML =`Score: ${this.totalScore}`
   if (page === "game-over") {
   
   }

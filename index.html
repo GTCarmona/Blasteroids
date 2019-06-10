@@ -14,14 +14,15 @@
   
   <h1>BLASTEROIDS </h1>
   <audio id="game-over"><source src="256091__soundeffectspodcast-com__game-over-voice-2b.wav" type="audio/wav" /></audio>
- 
+  
   <div class="game-container">
     <!-- <div id="Board"> -->
-      
-      <table class="highscores-table">
-        <tr>
-          <th>Highscores:</th>
-        </tr>
+      <div id="highscores">
+        <div id="scoreboard">
+              Score: 00 
+        </div>
+      <table id="highscores-table">
+        <h2>Highscores:</h2>
         <tr>
           <th id="high-score-1-name"></th>
           <th id="high-score-1-score"></th>
@@ -43,12 +44,10 @@
         <th id="high-score-5-score"></th>
       </tr>
     </table>
-    
-    <canvas width="800%" height="600%">
+  </div>
+    <canvas id="canvas"width="800" height="540">
     </canvas>
-        <div id="scoreboard">
-          Score : 00 
-        </div>
+
   </div>
   <!-- </div> -->
   
