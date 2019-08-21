@@ -8,7 +8,6 @@ class Background {
   
   }
 
-
   // draw background
   draw(ctx) {
     ctx.drawImage(this.backgroundImg, 0, this.y, this.width,this.height)   

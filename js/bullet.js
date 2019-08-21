@@ -8,7 +8,6 @@ class Bullet {
   }
   draw(ctx) {
     ctx.save()
-
     let bulletSprite = new Image()
     bulletSprite.src = "images/Sprites/artPack/Blue/bullet.png"
     

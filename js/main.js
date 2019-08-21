@@ -77,7 +77,6 @@ function resetGame() {
   asteroids = []
 }
 
-let status = true
 //asteroid.js
 let asteroidSprite = [
   "images/Sprites/artPack/Aestroids/aestroid_brown.png",
@@ -132,7 +131,7 @@ function updateEverything() {
   asteroids.forEach(element => {
     element.update();
   });
-
+// Bullets draw
   bullets.forEach(element => {
     element.update();
   });
@@ -144,6 +143,8 @@ function updateEverything() {
 
     }
   }
+
+   // CHECKING COLLISION IN BULLETS
   for (let i = 0; i < asteroids.length; i++) {
     for (let z = 0; z < bullets.length; z++) {
       if (checkCollisionBullets(bullets[z], asteroids[i])) { // asteroid  -- bullet
@@ -173,6 +174,12 @@ function updateEverything() {
       removeBullets()
       removeAsteroids();
     }
+
+
+
+
+
+
 
 function checkCollisionBullets(bullet, asteroid) {
   let distance = Math.sqrt((asteroid.x - bullet.x) ** 2 + (asteroid.y - bullet.y) ** 2)
@@ -355,6 +362,14 @@ function IncreaseDifficulty2500() {
   }
 }
 
+window.onkeydown = event => {
+  if (event.keyCode === 13) { // Enter
+    page = "game"
+    resetGame()
+    document.getElementById("scoreboard").innerHTML ="Score: 00"
+    
+  }
+}
 function gameOver() {
   page = "game-over"
   bgm.pause()
@@ -367,14 +382,6 @@ function gameOver() {
  
 }
 
-window.onkeydown = event => {
-  if (event.keyCode === 13) { // Enter
-    page = "game"
-    resetGame()
-    document.getElementById("scoreboard").innerHTML ="Score : 00"
-    
-  }
-}
  
 function drawGameOverPage() {
   ctx.save()
@@ -412,7 +419,7 @@ function drawHomePage() {
   ctx.restore()
 }
 
-
+//GET HIGHSCORES
 function getHighScores() {
   let highScores = JSON.parse(localStorage.getItem('highScores'))
   if (!highScores) {
@@ -425,6 +432,7 @@ function getHighScores() {
   highScores.push({score:0, name: ""})
   return highScores
 }
+
 function saveScore(newScore) {
   let highScores = getHighScores()
   highScores.push({
@@ -436,6 +444,7 @@ function saveScore(newScore) {
   })
   localStorage.setItem('highScores', JSON.stringify(highScores))
 }
+
 function renderHighScores() {
   let highScores = getHighScores()
   document.getElementById('high-score-1-score').innerText = highScores[0].score

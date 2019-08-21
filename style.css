@@ -5,21 +5,21 @@
 *{
 font-family: modithorsongrad;
 text-shadow: -1px 0 yellow, 0 1px yellow, 1px 0 yellow, 0 -1px yellow;
-font-size: 30px;
+font-size: 28px;
+/* outline: 2px solid red */
 }
 body{
     background-color: black;
-    margin: 0%;
+    margin: 0;
 }
 
 .game-container {
     display: flex;
     flex-direction: row;
     /* flex-wrap:wrap; */
-        width: 100%;
   }
 
-  @media (max-width: 900px) {
+  /* @media (max-width: 90vh) {
     table {
         display: block;
     }
@@ -29,29 +29,31 @@ body{
     td {
         display: block;
     }
-}
+} */
 #canvas {
- /* display:block; */
- 
- width: 65%;
- height: auto;
+margin: 2px; 
+ min-width: 68%;
+}
+#highscores-table  {
+    min-width: 15%;
+
 }
 #highscores {
     display: flex;
     flex-direction: column;
-    padding-left: 10px;
+    padding-left: 1%;
+    margin-top: 5%
 
 }
 #scoreboard {
- padding-left: 10px;
- text-align: left;
+    min-width: 15%;
+    text-align: center 
+}
+.scoreboard {
+    display: flex;
+    margin-top: 5%
 }
 
-#highscores-table  {
-    text-align: left;
-    min-width: 30%;
-
-}
 
 #score {
  color:black;
@@ -67,5 +69,9 @@ h1 {
  padding: 15px
 
 }
+/* h2 {
+    padding-right: 5px;
+
+} */
 
 
