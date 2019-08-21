@@ -14,7 +14,7 @@ class Player {
 
 
 
-    window.onkeydown = (event) => {
+    document.onkeydown = (event) => {
       event.preventDefault();
 
       if (event.keyCode === 38) {
@@ -34,7 +34,7 @@ class Player {
         this.shoot = true
       }
     }
-    window.onkeyup = (event) => {
+    document.onkeyup = (event) => {
       event.preventDefault();
 
       if (event.keyCode === 38) {

@@ -363,11 +363,15 @@ function IncreaseDifficulty2500() {
 }
 
 window.onkeydown = event => {
+  event.preventDefault();
+
   if (event.keyCode === 13) { // Enter
+    console.log("ENTER PRESSED")
+
     page = "game"
     resetGame()
     document.getElementById("scoreboard").innerHTML ="Score: 00"
-    
+    console.log("page status", page)
   }
 }
 function gameOver() {
