@@ -96,6 +96,7 @@ function animation() {
     renderHighScores()
 
   }
+  // test
   if (page === "game-over")
     drawGameOverPage()
 
